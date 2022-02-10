@@ -32,18 +32,14 @@ VAL = 'test+train[{}%:{}%]'.format(str(TRAIN_PERC),str(TRAIN_PERC+VAL_PERC))
 TEST = 'test+train[{}%:]'.format(str(TRAIN_PERC+VAL_PERC))
 ################################################################################
 # Paths
-DATA_DIR = os.path.join(os.path.abspath('../..'), 'data')
 MODEL_OUT_DIR = os.path.join(os.path.abspath('..'), 'models')
-WORKING_DIR = os.path.join(os.path.abspath('..'),'working')
+WORKING_DIR = os.path.join(os.path.abspath('..'),'data')
 # Output filenames
 MODEL_NAME = 'lenet.h5'
 # Print the dirs
-print('LOG --> DATA_DIR: '+str(DATA_DIR))
 print('LOG --> MODEL_OUT_DIR: '+str(MODEL_OUT_DIR))
-print('LOG --> WORKING_DIR: '+str(WORKING_DIR))
+print('LOG --> DATASET_DIR: '+str(WORKING_DIR))
 # Check that dirs exist if not create
-#if not os.path.exists(DATA_DIR):
-#    os.mkdir(DATA_DIR)
 if not os.path.exists(MODEL_OUT_DIR):
     os.mkdir(MODEL_OUT_DIR)
 if not os.path.exists(WORKING_DIR):

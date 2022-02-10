@@ -1,0 +1,221 @@
+2022-02-10 16:52:18.709961: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2022-02-10 16:52:30.095467: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:766] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "_cardinality"
+  value {
+    i: -2
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_180455"
+    }
+  }
+}
+attr {
+  key: "metadata"
+  value {
+    s: "\n\021FlatMapDataset:68"
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: -1
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+2022-02-10 16:52:30.123155: W tensorflow/core/framework/dataset.cc:744] Input of GeneratorDatasetOp::Dataset will not be optimized because the dataset does not implement the AsGraphDefInternal() method needed to apply optimizations.
+2022-02-10 16:52:32.457116: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:766] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "_cardinality"
+  value {
+    i: -2
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_182645"
+    }
+  }
+}
+attr {
+  key: "metadata"
+  value {
+    s: "\n\021FlatMapDataset:90"
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: 128
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+LOG --> MODEL_OUT_DIR: /home/psc/repos/neuro_comp_class/tutorials/modelgen/models
+LOG --> DATASET_DIR: /home/psc/repos/neuro_comp_class/tutorials/modelgen/data
+LOG --> Processing dataset of length 46000...
+(46000, 28, 28, 1)
+(46000, 10)
+LOG --> Processing dataset of length 28000...
+(28000, 28, 28, 1)
+(28000, 10)
+LOG --> Processing dataset of length 16000...
+(16000, 28, 28, 1)
+(16000, 10)
+LOG --> Input Shape: (28, 28, 1)
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 28, 28, 1)]       0         
+                                                                 
+ conv2d (Conv2D)             (None, 24, 24, 6)         156       
+                                                                 
+ average_pooling2d (AverageP  (None, 12, 12, 6)        0         
+ ooling2D)                                                       
+                                                                 
+ conv2d_1 (Conv2D)           (None, 8, 8, 16)          2416      
+                                                                 
+ average_pooling2d_1 (Averag  (None, 4, 4, 16)         0         
+ ePooling2D)                                                     
+                                                                 
+ flatten (Flatten)           (None, 256)               0         
+                                                                 
+ dense (Dense)               (None, 120)               30840     
+                                                                 
+ dense_1 (Dense)             (None, 84)                10164     
+                                                                 
+ dense_2 (Dense)             (None, 10)                850       
+                                                                 
+=================================================================
+Total params: 44,426
+Trainable params: 44,426
+Non-trainable params: 0
+_________________________________________________________________
+Epoch 1/5
+
+Epoch 00001: val_loss improved from inf to 0.15711, saving model to /home/psc/repos/neuro_comp_class/tutorials/modelgen/models/lenet.h5
+360/360 - 3s - loss: 0.4573 - accuracy: 0.8678 - val_loss: 0.1571 - val_accuracy: 0.9528 - 3s/epoch - 8ms/step
+Epoch 2/5
+
+Epoch 00002: val_loss improved from 0.15711 to 0.08191, saving model to /home/psc/repos/neuro_comp_class/tutorials/modelgen/models/lenet.h5
+360/360 - 2s - loss: 0.1237 - accuracy: 0.9624 - val_loss: 0.0819 - val_accuracy: 0.9747 - 2s/epoch - 6ms/step
+Epoch 3/5
+
+Epoch 00003: val_loss improved from 0.08191 to 0.06026, saving model to /home/psc/repos/neuro_comp_class/tutorials/modelgen/models/lenet.h5
+360/360 - 2s - loss: 0.0800 - accuracy: 0.9745 - val_loss: 0.0603 - val_accuracy: 0.9806 - 2s/epoch - 6ms/step
+Epoch 4/5
+
+Epoch 00004: val_loss improved from 0.06026 to 0.05600, saving model to /home/psc/repos/neuro_comp_class/tutorials/modelgen/models/lenet.h5
+360/360 - 2s - loss: 0.0628 - accuracy: 0.9804 - val_loss: 0.0560 - val_accuracy: 0.9821 - 2s/epoch - 6ms/step
+Epoch 5/5
+
+Epoch 00005: val_loss improved from 0.05600 to 0.04376, saving model to /home/psc/repos/neuro_comp_class/tutorials/modelgen/models/lenet.h5
+360/360 - 2s - loss: 0.0526 - accuracy: 0.9838 - val_loss: 0.0438 - val_accuracy: 0.9854 - 2s/epoch - 6ms/step
+2022-02-10 16:52:42.205887: W tensorflow/core/grappler/optimizers/data/auto_shard.cc:766] AUTO sharding policy will apply DATA sharding policy as it failed to apply FILE sharding policy because of the following reason: Did not find a shardable source, walked to a node which is not a dataset: name: "FlatMapDataset/_9"
+op: "FlatMapDataset"
+input: "PrefetchDataset/_8"
+attr {
+  key: "Targuments"
+  value {
+    list {
+    }
+  }
+}
+attr {
+  key: "_cardinality"
+  value {
+    i: -2
+  }
+}
+attr {
+  key: "f"
+  value {
+    func {
+      name: "__inference_Dataset_flat_map_slice_batch_indices_191777"
+    }
+  }
+}
+attr {
+  key: "metadata"
+  value {
+    s: "\n\022FlatMapDataset:136"
+  }
+}
+attr {
+  key: "output_shapes"
+  value {
+    list {
+      shape {
+        dim {
+          size: 32
+        }
+      }
+    }
+  }
+}
+attr {
+  key: "output_types"
+  value {
+    list {
+      type: DT_INT64
+    }
+  }
+}
+. Consider either turning off auto-sharding or switching the auto_shard_policy to DATA to shard this dataset. You can do this by creating a new `tf.data.Options()` object then setting `options.experimental_distribute.auto_shard_policy = AutoShardPolicy.DATA` before applying the options object to the dataset via `dataset.with_options(options)`.
+875/875 - 1s - loss: 0.0492 - accuracy: 0.9845 - 1s/epoch - 2ms/step
+INFERENCE PERFORMED ON 28000 IMAGES IN BATCHES OF 128
+EVALUATION LATENCY: 1.4567632675170898
+EVALUATION LOSS: 0.04915546998381615, EVALUATION ACC: 0.984499990940094

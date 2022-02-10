@@ -10,7 +10,7 @@ import tensorflow as tf
 from snntoolbox.bin.run import main
 ################################################################################
 # Configure parameters for config
-NUM_STEPS_PER_SAMPLE = 128  # Number of timesteps to run each sample (DURATION)
+NUM_STEPS_PER_SAMPLE = 18  # Number of timesteps to run each sample (DURATION)
 BATCH_SIZE = 32             # Affects memory usage. 32 -> 10 GB
 NUM_TEST_SAMPLES = 100      # Number of samples to evaluate or use for inference
 CONVERT_MODEL = True      
@@ -68,7 +68,7 @@ config['output'] = {
         'v_mem',
         'error_t'
     },
-    'overwrite': False
+    'overwrite': True
 }
 # Write the configuration file
 config_filepath = os.path.join(WORKING_DIR, 'config')

@@ -26,7 +26,7 @@ N_GPUS = 4
 The next group of variables are things that you can tweak about the network's dataset like the number of output classes, the batch size, train epochs, and the distribution between the training datset, validation, and test sets.
 ```
 DS_NAME = 'mnist'
-OUTPUT_CLASSES = 24
+OUTPUT_CLASSES = 10
 BATCH_SIZE = 64
 EPOCHS = 30
 TRAIN_PERC = 60 # Train percent
