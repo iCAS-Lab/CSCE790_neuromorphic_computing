@@ -12,7 +12,29 @@ Examples of a couple of simple networks are included:
 - VGG9
 - AlexNet
 
+
+
 Note: These networks have had some modifications to the particular layers versus the originals as there are some layers which are not supported for conversion techniques such as SNNToolbox.
+
+***
+## Dependencies
+List of python dependencies needed to run the code in this repo:
+- numpy
+- matplotlib
+- pandas (optional)
+- tensorflow
+- tensorflow-datasets
+- snntoolbox
+
+For specific versions of packages, please refer to the conda environment files (`*.yml`).
+
+To install these packages you can use:
+
+- `conda install <package_name>`  
+OR  
+- `pip install <package_name>`  
+
+Using conda is encouraged, specifically [Miniforge3](https://github.com/conda-forge/miniforge).
 
 ***
 ## A Note on Python Virtual Environments
