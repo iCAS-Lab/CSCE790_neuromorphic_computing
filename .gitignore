@@ -1,7 +1,9 @@
+# MacOS
+.DS_Store
+
 # Model Generation
 tutorials/modelgen/working/
 tutorials/modelgen/models/
 
 # SNNTB
 tutorials/snntb/ssntb_runs/
-
