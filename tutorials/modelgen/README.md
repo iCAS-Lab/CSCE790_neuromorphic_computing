@@ -11,6 +11,12 @@ You need just run `python3 <network>` in the `./src` directory and it will creat
 
 Please take note of the global variables at the top and change them to your needs.
 
+## Output Data
+The data is formated and saved to a directory called `data` in the form of `*.npz` files. You will need to copy this data for later use in the SNNTB conversion.
+
+## Output ANN
+The output trained ANN will be stored in the `models` directory.
+
 ## For example:
 
 The variables below are meant to toggle some settings like removing the model before running, removing the data,  or to train a new model, etc. You do not have to change these by default but you can if you wish not to retrain the network every time.
