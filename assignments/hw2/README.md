@@ -73,7 +73,7 @@ Batch size approximate memory usage:
 
 ---
 
-## 4. Write-up
+## 4. Submission
 Please provide a write-up of how you solved this assignment. Your write-up should include the following:
 
 1. How you implemented your VGG-9 network? What is the architecture? Include the number of filters and filter sizes.
@@ -84,4 +84,4 @@ Please provide a write-up of how you solved this assignment. Your write-up shoul
 
 Your write-up should be submitted as a ***PDF*** and should be written in the style of a professional paper. In other words, your submission should include an abstract, introduction, methodology, results, and conclusion section.
 
-***Please submit your assignment on Blackboard as a PDF.***
+***Please submit your assignment write-up AND code to Blackboard.***
