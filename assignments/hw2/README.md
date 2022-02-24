@@ -2,7 +2,7 @@
 CSCE 790: Neuromorphic Computing  
 Instructor: Dr. Ramtin Zand  
 Term: Spring 2022
-
+Assignment Author: Peyton Chandarana
 ---
 
 ## Assignment Summary
