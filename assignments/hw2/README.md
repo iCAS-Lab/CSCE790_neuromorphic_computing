@@ -83,3 +83,5 @@ Please provide a write-up of how you solved this assignment. Your write-up shoul
 5. What did you learn?
 
 Your write-up should be submitted as a ***PDF*** and should be written in the style of a professional paper. In other words, your submission should include an abstract, introduction, methodology, results, and conclusion section.
+
+***Please submit your assignment on Blackboard as a PDF.***
