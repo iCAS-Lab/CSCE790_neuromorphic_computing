@@ -1,7 +1,7 @@
 # Assignment 2
 CSCE 790: Neuromorphic Computing  
 Instructor: Dr. Ramtin Zand  
-Term: Spring 2022
+Term: Spring 2022  
 Assignment Author: Peyton Chandarana
 ---
 
@@ -17,7 +17,7 @@ More specificially, you will implement an ANN, VGG-9, which can classify the CIF
 ---
 
 ## 0. Preliminaries
-You will need to familiarize yourself with the basics of Python3 and Tensorflow prior to starting this assignment.  
+You will need to familiarize yourself with the basics of Python3 and Tensorflow prior to starting this assignment. Additionally, if you have not yet watched the SNN Conversion Toolbox lecture (Module 5), please watch it on the MS Teams class meeting chat.
 
 Also take a look at what the CIFAR-10 image dataset looks like so you can more easily visualize what it is you are trying to accomplish.
 
@@ -66,10 +66,10 @@ From here you will need to adjust the duration (NUM_STEPS_PER_SAMPLE) to analyze
 ## 3. Caveats
 Be careful how you adjust the `batch_size` or `BATCH_SIZE` parameter in the `snntb.py` script. This drammatically increases the amount of ram needed to run the simulations. See below:
 
-Batch size $\approx$ memory
-- 32 images $\approx$ 10 GB
-- 64 images $\approx$ 20 GB
-- 128 images $\approx$ 36 GB
+Batch size approximate memory usage:  
+- 32 images uses about 10 GB
+- 64 images uses about 20 GB
+- 128 images uses about 36 GB
 
 ---
 
