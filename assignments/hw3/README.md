@@ -30,7 +30,7 @@ Your task is to take these two sets of temporal signals, encode them into spike 
 
 > [P. Chandarana, J. Ou and R. Zand, "An Adaptive Sampling and Edge Detection Approach for Encoding Static Images for Spiking Neural Networks," 2021 12th International Green and Sustainable Computing Conference (IGSC), 2021, pp. 1-8, doi: 10.1109/IGSC54211.2021.9651610.](https://arxiv.org/pdf/2110.10217.pdf)
 
-- You should take a look and run the tutorials for the random signal/spike generator and the image to signal conversion tutorials.
+- You should take a look and run the tutorials for the random [signal generator](/tutorials/signals) and the image to signal conversion tutorials.
 
 ---
 
