@@ -14,6 +14,7 @@ Welcome to the CSCE 790 Neuromorphic Computing @ UofSC!
 This repository is meant to guide students to learn how to use different SNN tools and packages including:
 
 - [SNNToolbox](https://snntoolbox.readthedocs.io/en/latest/)
+- Encoding/Decoding Algorithms
 
 Examples of a couple of simple networks are included:
 
