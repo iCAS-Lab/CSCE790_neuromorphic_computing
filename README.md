@@ -7,20 +7,16 @@ Welcome to the CSCE 790 Neuromorphic Computing @ UofSC!
 ### Assignments:
 1. Given in class.
 2. [Assignment 2](/assignments/hw2/)
-3. [Assignment 3](/assignments/hw3/)
 
 ---
 
 This repository is meant to guide students to learn how to use different SNN tools and packages including:
 
 - [SNNToolbox](https://snntoolbox.readthedocs.io/en/latest/)
-- Encoding/Decoding Algorithms
 
 Examples of a couple of simple networks are included:
 
 - LeNet-5
-- VGG9
-- AlexNet
 
 Note: These networks have had some modifications to the particular layers versus the originals as there are some layers which are not supported for conversion techniques such as SNNToolbox.
 
