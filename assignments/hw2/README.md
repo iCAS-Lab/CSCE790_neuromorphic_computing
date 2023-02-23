@@ -68,7 +68,7 @@ You can find the algorithms in _[B. Petro, et. al.](https://ieeexplore.ieee.org/
 
 ## 3. Extra Credit
 
-For extra credit you can choose to implement your own version(s) of encoding/decoding signals or other data into spike trains. Note, however, you must be able to explain your method and analyze its performance compared to the rest of the algorithms you implement in step 2.
+For 10% extra credit you can choose to implement your own version(s) of encoding/decoding signals or other data into spike trains. Note, however, you must be able to explain your method and analyze its performance compared to the rest of the algorithms you implement in step 2.
 
 The neuromorphic computing community is always looking for new encoding/decoding algorithms to efficiently represent data as spike trains.
 
