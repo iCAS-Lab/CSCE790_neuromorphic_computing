@@ -5,8 +5,7 @@ Welcome to the CSCE 790 Neuromorphic Computing @ UofSC!
 ---
 
 ### Assignments:
-1. Given in class.
-2. [Project 1](/assignments/hw2/)
+1. [Project 1](/assignments/hw2/)
 
 ---
 
