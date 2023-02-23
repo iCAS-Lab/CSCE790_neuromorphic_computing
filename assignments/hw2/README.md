@@ -1,4 +1,4 @@
-# Assignment 3: Encoding/Decoding
+# Project 1: Encoding/Decoding
 
 [CSCE 790: Neuromorphic Computing](https://www.icaslab.com/teaching/csce790nc)  
 Instructor: [Dr. Ramtin Zand](https://icaslab.com)  
@@ -7,7 +7,7 @@ Assignment Author: [Peyton Chandarana](https://peytonsc.com)
 
 ---
 
-## Assignment Summary
+## Project Summary
 
 In this assignment we will implement encoding and decoding algorithms for encoding temporal signal to spike trains and decoding spike trains to signals. We will also implement several functions for measuring the performance of the implementations.
 
