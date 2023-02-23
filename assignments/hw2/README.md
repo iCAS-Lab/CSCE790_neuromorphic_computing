@@ -84,7 +84,7 @@ If you chose to modify the algorithms in any way you should explain how you modi
 
 ## 5. Submission
 
-For your assignment submission, like [Assignment 2](../hw2/README.md), you should submit both your code and a report about your experiments to BlackBoard.
+You should submit both your code and a report about your experiments to BlackBoard.
 
 The report should be well structured with abstract/introduction, methodology, results, and conclusion sections. You should include enough detail so that we can reproduce your work and get reproduceable results. Your report should include figures like graphs, tables, etc. to help the reader understand what you did.
 
