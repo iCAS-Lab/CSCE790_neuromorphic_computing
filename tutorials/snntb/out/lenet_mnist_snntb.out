@@ -1,0 +1,229 @@
+2022-02-10 16:50:16.312103: I tensorflow/core/platform/cpu_feature_guard.cc:151] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  SSE4.1 SSE4.2 AVX AVX2 FMA
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+WARNING:tensorflow:5 out of the last 5 calls to <function SpikeLayer.init_neurons at 0x7fa45c690820> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function SpikeLayer.init_neurons at 0x7fa45c5a9ca0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+Initializing INI simulator...
+
+Loading data set from '.npz' files in /home/psc/repos/neuro_comp_class/tutorials/snntb/data.
+
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 28, 28, 1)]       0         
+                                                                 
+ conv2d (Conv2D)             (None, 24, 24, 6)         156       
+                                                                 
+ average_pooling2d (AverageP  (None, 12, 12, 6)        0         
+ ooling2D)                                                       
+                                                                 
+ conv2d_1 (Conv2D)           (None, 8, 8, 16)          2416      
+                                                                 
+ average_pooling2d_1 (Averag  (None, 4, 4, 16)         0         
+ ePooling2D)                                                     
+                                                                 
+ flatten (Flatten)           (None, 256)               0         
+                                                                 
+ dense (Dense)               (None, 120)               30840     
+                                                                 
+ dense_1 (Dense)             (None, 84)                10164     
+                                                                 
+ dense_2 (Dense)             (None, 10)                850       
+                                                                 
+=================================================================
+Total params: 44,426
+Trainable params: 44,426
+Non-trainable params: 0
+_________________________________________________________________
+Evaluating input model on 100 samples...
+Top-1 accuracy: 98.00%
+Top-5 accuracy: 100.00%
+
+Parsing input model...
+Skipping layer InputLayer.
+Parsing layer Conv2D.
+Using activation relu.
+Parsing layer AveragePooling2D.
+Parsing layer Conv2D.
+Using activation relu.
+Parsing layer AveragePooling2D.
+Parsing layer Flatten.
+Parsing layer Dense.
+Using activation relu.
+Parsing layer Dense.
+Using activation relu.
+Parsing layer Dense.
+Using activation softmax.
+
+Building parsed model...
+
+Compiling parsed model...
+
+Model: "model"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(32, 28, 28, 1)]         0         
+                                                                 
+ 0Conv2D_24x24x6 (Conv2D)    (32, 24, 24, 6)           156       
+                                                                 
+ 1AveragePooling2D_12x12x6 (  (32, 12, 12, 6)          0         
+ AveragePooling2D)                                               
+                                                                 
+ 2Conv2D_8x8x16 (Conv2D)     (32, 8, 8, 16)            2416      
+                                                                 
+ 3AveragePooling2D_4x4x16 (A  (32, 4, 4, 16)           0         
+ veragePooling2D)                                                
+                                                                 
+ 4Flatten_256 (Flatten)      (32, 256)                 0         
+                                                                 
+ 5Dense_120 (Dense)          (32, 120)                 30840     
+                                                                 
+ 6Dense_84 (Dense)           (32, 84)                  10164     
+                                                                 
+ 7Dense_10 (Dense)           (32, 10)                  850       
+                                                                 
+=================================================================
+Total params: 44,426
+Trainable params: 44,426
+Non-trainable params: 0
+_________________________________________________________________
+Normalizing parameters...
+Using 4600 samples for normalization.
+INFO: Need ['0.06', '0.02', '0.00', '0.00', '0.00'] GB for layer activations.
+May have to reduce size of data set used for normalization.
+Calculating activations of layer 0Conv2D_24x24x6 ...
+Writing activations to disk...
+Scale factor: 2.38.
+Calculating activations of layer 2Conv2D_8x8x16 ...
+Writing activations to disk...
+Scale factor: 5.76.
+Calculating activations of layer 5Dense_120 ...
+Writing activations to disk...
+Scale factor: 8.29.
+Calculating activations of layer 6Dense_84 ...
+Writing activations to disk...
+Scale factor: 12.22.
+Calculating activations of layer 7Dense_10 ...
+Writing activations to disk...
+Scale factor: 1.00.
+Using scale factor 1.00 for softmax layer.
+Plotting distributions of weights and activations before and after normalizing...
+Loading activations stored during a previous run.
+Loading activations stored during a previous run.
+Loading activations stored during a previous run.
+Loading activations stored during a previous run.
+Loading activations stored during a previous run.
+
+Evaluating parsed model on 100 samples...
+Top-1 accuracy: 76.56%
+Top-5 accuracy: 76.56%
+
+Building spiking model...
+Building layer: 0Conv2D_24x24x6
+Building layer: 1AveragePooling2D_12x12x6
+Building layer: 2Conv2D_8x8x16
+Building layer: 3AveragePooling2D_4x4x16
+Building layer: 4Flatten_256
+Building layer: 5Dense_120
+Building layer: 6Dense_84
+Building layer: 7Dense_10
+Compiling spiking model...
+
+Detected layer with biases: 0Conv2D_24x24x6
+Detected layer with biases: 2Conv2D_8x8x16
+Detected layer with biases: 5Dense_120
+Detected layer with biases: 6Dense_84
+Detected layer with biases: 7Dense_10
+Number of operations of ANN: 567974
+Number of neurons: 5814
+Number of synapses: 509320
+
+Saving model to /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs/lenet_INI.h5...
+
+
+Starting new simulation...
+
+Current accuracy of batch:
+ 12.50% 12.50% 15.62%  9.38% 12.50% 15.62% 25.00% 34.38% 50.00% 62.50% 75.00% 75.00% 81.25% 84.38% 87.50% 90.62% 93.75% 96.88%WARNING:tensorflow:5 out of the last 22 calls to <function Model.make_predict_function.<locals>.predict_function at 0x7fa45c2feee0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 23 calls to <function Model.make_predict_function.<locals>.predict_function at 0x7fa4206c40d0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:5 out of the last 5 calls to <function SpikeLayer.reset_spikevars at 0x7fa420635820> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+WARNING:tensorflow:6 out of the last 6 calls to <function SpikeLayer.reset_spikevars at 0x7fa420571670> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has experimental_relax_shapes=True option that relaxes argument shapes that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.
+
+Batch 1 of 3 completed (33.3%)
+Moving accuracy of SNN (top-1, top-1): 96.88%, 96.88%.
+Moving accuracy of ANN (top-1, top-1): 96.88%, 96.88%.
+
+Calculating activations...
+
+Average spike rate: 0.097245377387087 spikes per simulation time step.
+Saving plots of one sample to /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs/log/gui/lenet_18...
+
+Plotting layer 0Conv2D_24x24x6
+Plotting layer 1AveragePooling2D_12x12x6
+Plotting layer 2Conv2D_8x8x16
+Plotting layer 3AveragePooling2D_4x4x16
+Plotting layer 5Dense_120
+Plotting layer 6Dense_84
+Plotting layer 7Dense_10
+Plotting batch run statistics...
+Done.
+
+
+Starting new simulation...
+
+Current accuracy of batch:
+ 12.50% 15.62%  9.38%  9.38% 12.50% 12.50% 12.50% 31.25% 50.00% 68.75% 81.25% 90.62% 93.75% 96.88% 96.88% 96.88% 96.88% 96.88%
+Batch 2 of 3 completed (66.7%)
+Moving accuracy of SNN (top-1, top-1): 96.88%, 96.88%.
+Moving accuracy of ANN (top-1, top-1): 96.88%, 96.88%.
+
+Calculating activations...
+
+Average spike rate: 0.09532349870331076 spikes per simulation time step.
+Saving plots of one sample to /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs/log/gui/lenet_18...
+
+Plotting layer 0Conv2D_24x24x6
+Plotting layer 1AveragePooling2D_12x12x6
+Plotting layer 2Conv2D_8x8x16
+Plotting layer 3AveragePooling2D_4x4x16
+Plotting layer 5Dense_120
+Plotting layer 6Dense_84
+Plotting layer 7Dense_10
+Plotting batch run statistics...
+Done.
+
+
+Starting new simulation...
+
+Current accuracy of batch:
+  9.38%  6.25%  6.25%  6.25% 12.50% 12.50% 18.75% 40.62% 56.25% 78.12% 84.38% 90.62% 90.62% 93.75%100.00%100.00%100.00%100.00%
+Batch 3 of 3 completed (100.0%)
+Moving accuracy of SNN (top-1, top-1): 97.92%, 97.92%.
+Moving accuracy of ANN (top-1, top-1): 97.92%, 97.92%.
+
+Calculating activations...
+
+Average spike rate: 0.09151342157556162 spikes per simulation time step.
+Saving plots of one sample to /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs/log/gui/lenet_18...
+
+Plotting layer 0Conv2D_24x24x6
+Plotting layer 1AveragePooling2D_12x12x6
+Plotting layer 2Conv2D_8x8x16
+Plotting layer 3AveragePooling2D_4x4x16
+Plotting layer 5Dense_120
+Plotting layer 6Dense_84
+Plotting layer 7Dense_10
+Plotting batch run statistics...
+Done.
+
+Simulation finished.
+
+
+Total accuracy: 97.92% on 96 test samples.
+
+
+Accuracy averaged by class size: 97.57%
+Working Directory: /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs
+Dataset Directory: /home/psc/repos/neuro_comp_class/tutorials/snntb/data
+SNN is located at: /home/psc/repos/neuro_comp_class/tutorials/snntb/snntb_runs
