@@ -1,4 +1,4 @@
-# Assignment 2: SNN Conversion Toolbox
+# Project 2: SNN Conversion Toolbox
 
 [CSCE 790: Neuromorphic Computing](https://www.icaslab.com/teaching/csce790nc)  
 Instructor: [Dr. Ramtin Zand](https://icaslab.com)  
