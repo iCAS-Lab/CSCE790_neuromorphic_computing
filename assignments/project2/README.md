@@ -1,4 +1,4 @@
-# Project 1: Encoding/Decoding
+# Assignment 2: SNN Conversion Toolbox
 
 [CSCE 790: Neuromorphic Computing](https://www.icaslab.com/teaching/csce790nc)  
 Instructor: [Dr. Ramtin Zand](https://icaslab.com)  
@@ -7,85 +7,90 @@ Assignment Author: [Peyton Chandarana](https://peytonsc.com)
 
 ---
 
-## Project Summary
+## Assignment Summary
 
-In this assignment we will implement encoding and decoding algorithms for encoding temporal signal to spike trains and decoding spike trains to signals. We will also implement several functions for measuring the performance of the implementations.
+The first assignment's purpose is to get familiar with creating ANN models using a specific dataset and ANN architecture along with using the SNNToolbox to convert the trained model to a Spiking Neural Network (SNN).
 
-Three algorithms will be required for full credit with an optional extra credit custom encoding/decoding approach.
+There will be two primary steps in this assignment:
 
-Two sets of input will be provided:
+1. Create and train the ANN.
+2. Convert the ANN to an SNN using the SNNTB built-in simulator, INIsim.
 
-- Randomly generated signals
-- Real-world signals
+More specificially, you will implement an ANN, VGG-9, which can classify the CIFAR-10 image dataset, train the model, and then convert the ANN model to an SNN.
 
-Your task is to take these two sets of temporal signals, encode them into spike trains and then decode the spike trains to reconstruct the signals. From there, you will then analyze the orignal signals, the spike trains, and the reconstructed signals to draw some conclusions about the different methods.
+---
 
 ## 0. Preliminaries
 
-- To familiarize yourself with encoding and decoding methods you should first read this paper:
+You will need to familiarize yourself with the basics of Python3 and Tensorflow prior to starting this assignment. Additionally, if you have not yet watched the SNN Conversion Toolbox lecture (Module 5), please watch it on the MS Teams class meeting chat.
 
-> [B. Petro, N. Kasabov and R. M. Kiss, "Selection and Optimization of Temporal Spike Encoding Methods for Spiking Neural Networks," in IEEE Transactions on Neural Networks and Learning Systems, vol. 31, no. 2, pp. 358-370, Feb. 2020, doi: 10.1109/TNNLS.2019.2906158.](https://ieeexplore.ieee.org/document/8689349)
+Also take a look at what the CIFAR-10 image dataset looks like so you can more easily visualize what it is you are trying to accomplish.
 
-- You can see an example of the work we are expecting in:
+Take a look at the Python3 scripts in `tutorials/modelgen/src` and familiarize yourself with the code. You will also want to look at the SNN Conversion Toolbox example tutorial that I have provided in `tutorials/snntb`.
 
-> [P. Chandarana, J. Ou and R. Zand, "An Adaptive Sampling and Edge Detection Approach for Encoding Static Images for Spiking Neural Networks," 2021 12th International Green and Sustainable Computing Conference (IGSC), 2021, pp. 1-8, doi: 10.1109/IGSC54211.2021.9651610.](https://arxiv.org/pdf/2110.10217.pdf)
+To start the project you can just copy over the `modelgen` and the `snntb` directories to the `assignment/hw2` directory.
 
-- You should take a look and run the tutorials for the random [signal generator](/tutorials/signals) and the image to signal conversion tutorials.
-
----
-
-## 1. Metrics Implementation
-
-You will need to implement 4 functions in this section. The 4 functions are defined in _[B. Petro, et. al.](https://ieeexplore.ieee.org/document/8689349)_ with their mathematical formulas/equations.
-
-- Root Mean Square Error (RMSE)
-
-  Takes in two signals and computes the error between the two signals i.e. how different the signals are.
-
-- Average Firing Rate (AFR)
-
-  Takes in a spike train and computes the average of how often the spike train has an action potential/spike.
-
-- Signal to Noise Ration (SNR)
-
-  Computes the difference between the original signal and the new signal. This difference is considered noise.
-
-- Fitness Function
-
-  This metric combines multiple metrics and allows you to tune which of the metrics matter to you more. It takes in several metrics along with their weights and outputs a value which represents how well the signal was encoded/decoded. You can see an example of a fitness function in _[P. Chandarana, et. al.](https://arxiv.org/pdf/2110.10217.pdf)_
+Please feel free to reach out if you have any questions about what certain chunks do.
 
 ---
 
-## 2. Encoder/Decoder Implementations
+## 1. Creating the ANN
 
-In this section you will implement 3 differening encoding algorithms and their respective decoding algorithm(s).
+First, you will need to create a model. You will most likely want to take the python script from the `tutorials/modelgen/src` directory and make a copy to a new model file.
 
-You will need to implement the following 3 encoding algorithms and the decoding algorithm to get full credit step-forward (SF), moving-window (MW), and threshold-based representation (TBR). So in total you should have at least 4 functions.
+This way you can just worry about changing the dataset and the model architecture.
 
-You can find the algorithms in _[B. Petro, et. al.](https://ieeexplore.ieee.org/document/8689349)_
+Once you copy the MNIST example of `lenet.py` from `tutorials/modelgen/src` you will need to first change the dataset to the CIFAR-10 dataset. The simplest way to do this is by importing the dataset from the Tensorflow Datasets package which I have already used in the tutorial files.
 
----
+The tutorial should handle the image size differences and the fact that the dataset has 3 channels for RGB.
 
-## 3. Extra Credit
+Now you need just implement the model for VGG-9. To learn more about VGG style networks just search for the network architecture online. Note that VGG-11 is more common and you may not find a VGG-9 example. To create VGG-9 you simply need to reduce VGG-11 by two layers.
 
-For 10% extra credit you can choose to implement your own version(s) of encoding/decoding signals or other data into spike trains. Note, however, you must be able to explain your method and analyze its performance compared to the rest of the algorithms you implement in step 2.
-
-The neuromorphic computing community is always looking for new encoding/decoding algorithms to efficiently represent data as spike trains.
+You may want to ensure that everything is working by first running LeNet-5 on CIFAR-10. The accuracy of CIFAR-10 on LeNet-5 is expected to be poor due to CIFAR-10 containing much more complex images compared to MNIST.
 
 ---
 
-## 4. Analysis
+## 2. Converting the ANN to an SNN
 
-This is the most important part of the assignment. After you implement your metric functions and the encoding/decoding algorithms, you should perform an analysis on the performance of the encoding/decoding algorithms.
+The second part of this assignment is to convert the trained ANN model for VGG-9 that you created to an SNN using the SNN Conversion Toolbox.
 
-If you chose to modify the algorithms in any way you should explain how you modified them and why you changed what you did.
+Please take a look at the `snntb.py` file in `tutorials/snntb` prior to starting this part of the assignment.
+
+The SNN Conversion Toolbox requires 2 things:
+
+1. The trained ANN model.
+2. The data files from generating the model (i.e. `*.npz` files).
+
+By default the code I have created in the tutorials looks for the models in `tutorials/snntb/models` and the `*.npz` data files in `tutorials/snntb/data`.
+
+Once you have the conversion running and successfully performing inference (i.e. test images are tested and you are given an accuracy).
+
+From here you will need to adjust the duration (NUM_STEPS_PER_SAMPLE) to analyze the accuracy vs. latency tradeoff.
 
 ---
 
-## 5. Submission
+## 3. Caveats
 
-You should submit both your code and a report about your experiments to BlackBoard.
+Be careful how you adjust the `batch_size` or `BATCH_SIZE` parameter in the `snntb.py` script. This drammatically increases the amount of ram needed to run the simulations. See below:
 
-The report should be well structured with abstract/introduction, methodology, results, and conclusion sections. You should include enough detail so that we can reproduce your work and get reproduceable results. Your report should include figures like graphs, tables, etc. to help the reader understand what you did.
+Batch size approximate memory usage:
+
+- 32 images uses about 10 GB
+- 64 images uses about 20 GB
+- 128 images uses about 36 GB
 
 ---
+
+## 4. Submission
+
+Please provide a write-up of how you solved this assignment. Your write-up should include the following:
+
+1. How you implemented your VGG-9 network? What is the architecture? Include the number of filters and filter sizes.
+2. Did you run into any issues while running your experiements or designing your model?
+3. Summarize your experimental processes.
+4. An analysis of the accuracy vs. latency tradeoff. You should include graphs/figures/tables (at least one).
+5. What did you learn?
+
+Your write-up should be submitted as a **_PDF_** and should be written in the style of a professional paper. In other words, your submission should include an abstract, introduction, methodology, results, and conclusion section.
+
+**_Please submit your assignment write-up AND code to Blackboard._**
