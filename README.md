@@ -5,8 +5,10 @@ Welcome to the CSCE 790 Neuromorphic Computing @ UofSC!
 ---
 
 ### Assignments:
+
 1. [Project 1](/assignments/project1/)
 2. [Project 2](/assignments/project2/)
+3. [Project 3](/assignments/project3/)
 
 ---
 
@@ -23,7 +25,9 @@ Note: These networks have had some modifications to the particular layers versus
 ---
 
 ## Dependencies
+
 List of python dependencies needed to run the code in this repo:
+
 - numpy
 - matplotlib
 - pandas (optional)
@@ -36,14 +40,15 @@ For specific versions of packages, please refer to the conda environment files (
 To install these packages you can use:
 
 - `conda install <package_name>`  
-OR  
-- `pip install <package_name>`  
+  OR
+- `pip install <package_name>`
 
 Using conda is encouraged, specifically [Miniforge3](https://github.com/conda-forge/miniforge).
 
 ---
 
 ## A Note on Python Virtual Environments
+
 This repository contains a virtual environment for each tutorial or separate package. The main reason for this is that some (not all) of the packages have some dependency conflicts. Thus a conda environment file is provided for each of the tutorials.
 
 The virtual environments were created using [Miniforge3](https://github.com/conda-forge/miniforge) as opposed to Anaconda.
